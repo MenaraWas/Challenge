@@ -1,0 +1,58 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class nilai {
+    static Scanner input = new Scanner(System.in);
+    static ArrayList<Float> arr_data = new ArrayList<Float>();//deklarasi arraylistnya
+
+    static void inputNilai() { //fungsi untuk input nilai
+        System.out.print("Masukkan nilai kamu : ");
+        float angka = input.nextFloat();//mengambil inputan user
+        arr_data.add(angka); //menambahkan user input kedalam arraylist
+        System.out.println("apakah anda ingin upload nilai lagi ? (1. ya/2. tidak)");
+        int pilih = input.nextInt();
+
+        //looping untuk menginput lagi
+        if(pilih == 1){
+            inputNilai();
+        }else if(pilih == 2){
+            //kosong biar langsung keluar ke menu
+        }
+
+    }
+
+    static void tampilNilai() { //fungsi untuk melihat data
+        System.out.println("data kamu : ");
+        for(float f : arr_data){    //for-each buat mengambil data di arraylist arr_data
+            System.out.println(f);  //ini untuk ngeprint data
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        boolean stt = true;
+        while (stt) {
+            System.out.println("");
+            System.out.println("Program nilai");
+            System.out.println("1. Input Nilai");
+            System.out.println("2. Lihat Nilai");
+            System.out.println("3. Keluar");
+            System.out.println("===============");
+            int menu = scan.nextInt();
+            scan.nextLine();
+
+            switch (menu) {
+                case 1:
+                    inputNilai();//memanggil fungsi input nilai
+                    break;
+                case 2:
+                tampilNilai();
+                    break;
+                case 3:
+                    System.exit(0);
+            }
+        }
+
+    }
+}
