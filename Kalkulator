@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class algo{
+    
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        double angka1, angka2;
+        int angka;
+
+        System.out.println("Menu Kalkulator");
+        System.out.println("==================");
+        System.out.print("Masukkan angka pertama : ");
+        angka1 = scan.nextDouble();
+        System.out.print("Masukkan angka Kedua : ");
+        angka2 = scan.nextDouble();
+        System.out.println("==================");
+        System.out.println("1. Tambah");
+        System.out.println("2. Kurang");
+        System.out.println("3. Kali");
+        System.out.println("4. Bagi");
+        System.out.println("5. Keluar");
+        System.out.println("===================");
+        angka = scan.nextInt();
+
+        switch (angka) {
+            case 1:
+                System.out.print("Hasil kamu adalah : "+ (angka1 + angka2));
+                break;
+            case 2:
+                System.out.print("Hasil kamu adalah : "+ (angka1 - angka2));
+                break;
+            case 3:
+                System.out.print("Hasil kamu adalah : "+ (angka1 * angka2));
+                break;
+            case 4:
+                System.out.print("Hasil kamu adalah : "+ (angka1 / angka2));
+                break;
+            case 5:
+                System.exit(0);
+        }
+        
+    }
+}
