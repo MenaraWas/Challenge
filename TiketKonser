@@ -1,0 +1,83 @@
+import java.util.Scanner; // iki nggo import scanner
+import java.util.HashMap; // iki nggo import hashmap
+
+public class login {
+    static Scanner input = new Scanner(System.in);//memanggil scanner
+    static HashMap<String, String> hash_Data = new HashMap<String, String>();//membuat hashdata
+    float nilai;//deklarasi nilai
+
+    public login() {// constructor
+        System.out.print("Masukkan IPK kamu : ");
+        nilai = input.nextFloat();
+        input.nextLine();
+        if (nilai > 3.0 || nilai == 4) {
+            System.out.println("Kamu berhak tiket gold");
+        } else if (nilai > 2.0 || nilai == 3.0) {
+            System.out.println("Kamu berhak tiket silver");
+        } else if (nilai > 1.0 || nilai == 2.0) {
+            System.out.println("kamu berhak livestream story WA pak rektor");
+        }
+
+    }
+
+    static void daftar() {
+        System.out.print("Masukkan NIM kamu : ");
+        String nim = input.nextLine();
+        System.out.print("Masukkan Nama Kamu : ");
+        String nama = input.nextLine();
+
+        System.out.println("===============");
+
+        hash_Data.put(nim, nama);
+        if(nim.matches("[0-9]*")){
+            System.out.println("Selamat kamu sudah terdaftar, silahkan login");
+        }else{
+            System.out.println("Harap inputkan angka pada nim, ulangi ya");
+        }
+
+    }
+
+    static void masuk() {
+
+        System.out.print("Masukkan NIM Kamu : ");
+        String nimku = input.nextLine();
+        for (String user : hash_Data.keySet()) {
+            if (nimku.contains(user)) {
+                System.out.println("Hai " + hash_Data.get(user) + " kamu sudah login");
+                login log = new login();
+            }else {
+                System.out.println("NIM kamu belum terdaftar, daftar dulu");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        boolean stt = true;
+        while (stt) {
+            System.out.println("");
+            System.out.println("Sistem Informasi Mahasiswa");
+            System.out.println("1. Daftar");
+            System.out.println("2. Login");
+            System.out.println("3. Keluar");
+            System.out.println("===============");
+            int menu = scan.nextInt();
+            scan.nextLine();
+
+            switch (menu) {
+                case 1:
+                    daftar();
+                    break;
+
+                case 2:
+                    masuk();
+                    break;
+
+                case 3:
+                    System.exit(0);
+                    break;
+            }
+        }
+    }
+}
